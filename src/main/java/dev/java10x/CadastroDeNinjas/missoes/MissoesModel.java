@@ -29,5 +29,5 @@ public class MissoesModel {
     @Column
     @OneToMany(mappedBy = "missoes")
     private List<NinjaModel> ninjaModel;
-    
+
 }
