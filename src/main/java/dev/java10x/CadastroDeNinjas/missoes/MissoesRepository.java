@@ -1,4 +1,6 @@
 package dev.java10x.CadastroDeNinjas.missoes;
 
-public interface MissoesRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MissoesRepository extends JpaRepository<MissoesModel, Long> {
 }
