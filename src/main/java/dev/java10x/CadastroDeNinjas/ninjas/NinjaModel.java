@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 
 
 @Entity
-@Table(name="/tb_cadastro")
+@Table(name="tb_cadastro")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
