@@ -29,10 +29,11 @@ public class NinjaController {
         return ninjaService.listarNinjas();
     }
     //mostrar ninja por id (read)
-    @GetMapping("/todosporid")
-    public String mostrarTodosPorId(){
-    return "mostrar";
+    @GetMapping("/listar/{id}")
+    public NinjaModel mostrarTodosNinjaPorId(@PathVariable Long id){
+    return ninjaService.listarNinjasPorId(id);
     }
+
     //modificar um ninja (update)
     @PutMapping("/alterartodosporId")
     public String alterar(){
