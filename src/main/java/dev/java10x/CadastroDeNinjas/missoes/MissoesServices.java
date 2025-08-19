@@ -30,4 +30,8 @@ public class MissoesServices {
         missoesModel.setRank(model.getRank());
         return missoesRepository.save(missoesModel);
     }
+
+    public void deletarMissao(Long id){
+        missoesRepository.deleteById(id);
+    }
 }
