@@ -24,4 +24,10 @@ public class MissoesServices {
     public MissoesModel criarMissao(MissoesModel model){
         return missoesRepository.save(model);
     }
+    public MissoesModel alterarMissao(Long id, MissoesModel model){
+        MissoesModel missoesModel = missoesRepository.findById(id).orElse(null);
+        missoesModel.setName(model.getName());
+        missoesModel.setRank(model.getRank());
+        return missoesRepository.save(missoesModel);
+    }
 }
