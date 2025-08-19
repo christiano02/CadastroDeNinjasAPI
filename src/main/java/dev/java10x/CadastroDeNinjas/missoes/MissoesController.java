@@ -19,7 +19,11 @@ public class MissoesController {
     public List<MissoesModel> listarMissoes(){
         return missoesServices.listarMissoes();
     }
-
+    //Get: mandar requisição para listar missoes por id
+    @GetMapping("listarMissoesPorId/{id}")
+    public MissoesModel listarMissaoPorId(@PathVariable Long id){
+        return missoesServices.listarMissoesPorId(id);
+    }
     //Post: mandar requisições para o usuario criar missoes
     @PostMapping("/criar")
     public String criarMissao(){
