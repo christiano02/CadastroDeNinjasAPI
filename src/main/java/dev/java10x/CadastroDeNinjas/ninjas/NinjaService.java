@@ -25,9 +25,14 @@ public class NinjaService {
         return ninjaModel.orElse(null);
     }
 
+    //endpoint para criar Ninjas
     public NinjaModel criarNinja(NinjaModel ninjaModel){
         return ninjaRepository.save(ninjaModel);
     }
 
+    //Delete ninja
+    public void detetarNinjaPorId(Long id){
+        ninjaRepository.deleteById(id);
+    }
 }
 
