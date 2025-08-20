@@ -1,12 +1,7 @@
 package dev.java10x.CadastroDeNinjas.ninjas;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.java10x.CadastroDeNinjas.missoes.MissoesModel;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Objects;
 
@@ -32,18 +27,23 @@ public class NinjaModel {
     @Column(name = "age")
     private int age;
 
+    @Column(name="rank")
+    private String rank;
+
     //ManyToOne um ninja tem uma unica missão
     @ManyToOne
     @JoinColumn(name="missoes_id") //foreing key ou chave estrangeira
     private MissoesModel missoes;
 
-    public NinjaModel(Long id, String name, String email, String imgUrl, int age, MissoesModel missoes) {
+    public NinjaModel(Long id, String name, String email, String imgUrl, int age, String rank, MissoesModel missoes) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.imgUrl = imgUrl;
         this.age = age;
+        this.rank = rank;
         this.missoes = missoes;
+
     }
     public NinjaModel(){}
 
@@ -85,6 +85,14 @@ public class NinjaModel {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getRank() {
+        return rank;
+    }
+
+    public void setRank(String rank) {
+        this.rank = rank;
     }
 
     public MissoesModel getMissoes() {
