@@ -1,51 +1,29 @@
 package dev.java10x.CadastroDeNinjas.ninjas;
 
+
 import dev.java10x.CadastroDeNinjas.missoes.MissoesModel;
-import jakarta.persistence.*;
 
-import java.util.Objects;
+public class NinjaDTO{
 
-
-@Entity
-@Table(name="tb_cadastro")
-public class NinjaModel {
-
-    @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
-
-    @Column(name = "name")
     private String name;
-
-    @Column(unique = true)
     private String email;
-
-    @Column(name="imgUrl")
     private String imgUrl;
-
-    @Column(name = "age")
     private int age;
-
-    @Column(name="rank")
     private String rank;
-
-    //ManyToOne um ninja tem uma unica missão
-    @ManyToOne
-    @JoinColumn(name="missoes_id") //foreing key ou chave estrangeira
     private MissoesModel missoes;
 
-    public NinjaModel(Long id, String name, String email, String imgUrl, int age, String rank, MissoesModel missoes) {
+    public NinjaDTO(){}
+
+    public NinjaDTO(Long id, String name, String email, String imgUrl, int age, MissoesModel missoes, String rank) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.imgUrl = imgUrl;
         this.age = age;
-        this.rank = rank;
         this.missoes = missoes;
-
+        this.rank = rank;
     }
-    public NinjaModel(){}
 
     public Long getId() {
         return id;
@@ -103,16 +81,5 @@ public class NinjaModel {
         this.missoes = missoes;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        NinjaModel that = (NinjaModel) o;
-        return Objects.equals(id, that.id);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
-    }
 }
